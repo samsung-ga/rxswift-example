@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -28,6 +28,7 @@
 		D435D18E2568E28200A47D58 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D435D1912568E28200A47D58 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D435D1932568E28200A47D58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D441728C256919870036BEDF /* DispatchQueue.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = DispatchQueue.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +57,6 @@
 				5F5E52D3C057A1759028A111 /* Pods-RxSwiftProject1.debug.xcconfig */,
 				1DBCD73BC128FA2B3FB0E9D7 /* Pods-RxSwiftProject1.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -84,6 +84,7 @@
 				D435D1852568E28200A47D58 /* AppDelegate.swift */,
 				D435D1872568E28200A47D58 /* SceneDelegate.swift */,
 				D435D1892568E28200A47D58 /* ViewController.swift */,
+				D441728C256919870036BEDF /* DispatchQueue.playground */,
 				D435D18B2568E28200A47D58 /* Main.storyboard */,
 				D435D18E2568E28200A47D58 /* Assets.xcassets */,
 				D435D1902568E28200A47D58 /* LaunchScreen.storyboard */,
