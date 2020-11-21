@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import RxSwift
 
-let MOVIE_LIST: String = "https://my.api.mockaroo.com/members_with_avatar.json?key=44ce18f0"
+let MOVIE_LIST: String = "https://my.api.mockaroo.com/myapi.json?key=30fca5f0"
 
 class ViewController: UIViewController {
     
