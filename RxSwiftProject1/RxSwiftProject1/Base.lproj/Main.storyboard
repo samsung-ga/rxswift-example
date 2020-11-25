@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NZ1-Am-ijv">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
@@ -76,6 +76,35 @@
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="114.50892857142857"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="CvQ-OU-rVX">
+            <objects>
+                <viewController id="NZ1-Am-ijv" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jFC-z0-fMq">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rlQ-6f-aPm">
+                                <rect key="frame" x="75" y="358" width="240" height="128"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="4EO-8s-d52"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="4EO-8s-d52" firstAttribute="trailing" secondItem="rlQ-6f-aPm" secondAttribute="trailing" constant="75" id="08i-uu-kE5"/>
+                            <constraint firstItem="rlQ-6f-aPm" firstAttribute="centerY" secondItem="jFC-z0-fMq" secondAttribute="centerY" id="3vY-yq-kgL"/>
+                            <constraint firstItem="4EO-8s-d52" firstAttribute="bottom" secondItem="rlQ-6f-aPm" secondAttribute="bottom" constant="324" id="C2y-hE-V0c"/>
+                            <constraint firstItem="rlQ-6f-aPm" firstAttribute="top" secondItem="4EO-8s-d52" secondAttribute="top" constant="314" id="CXD-6Q-tdN"/>
+                            <constraint firstItem="rlQ-6f-aPm" firstAttribute="leading" secondItem="4EO-8s-d52" secondAttribute="leading" constant="75" id="VkM-gN-jhz"/>
+                            <constraint firstItem="rlQ-6f-aPm" firstAttribute="centerX" secondItem="jFC-z0-fMq" secondAttribute="centerX" id="sVV-t0-Beg"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RhE-c2-03e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1213" y="121"/>
+        </scene>
     </scenes>
     <resources>
         <systemColor name="labelColor">
@@ -83,6 +112,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
