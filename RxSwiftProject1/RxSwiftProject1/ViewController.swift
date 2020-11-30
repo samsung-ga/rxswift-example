@@ -32,6 +32,34 @@ class ViewController: UIViewController {
         })
     }
     
+    private func download(_ url: String) -> Observable<String?> {
+        
+        return Observable.create { (emitter) -> Disposable in
+            
+            let url = URL(string: url)!
+            let task = URLSession.shared.dataTask(with: url) { (data, _, error) in
+                guard error == nil else  {
+                    emitter.onError(error!)
+                    return
+                }
+                
+                if let dat = data, let json = String(data: dat, encoding: .utf8) {
+                    emitter.onNext(json)
+                    return
+                }
+                
+                emitter.onCompleted()
+            }
+            
+            task.resume()
+            
+            
+            return Disposables.create() {
+                task.cancel()
+            }
+        }
+    }
+    
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     @IBAction func onLoad(_ sender: UIButton) {
