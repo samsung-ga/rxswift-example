@@ -34,6 +34,7 @@ class ViewController: UIViewController {
     
     private func download(_ url: String) -> Observable<String?> {
         
+        // Thread 생성
         return Observable.create { (emitter) -> Disposable in
             
             let url = URL(string: url)!
@@ -44,6 +45,7 @@ class ViewController: UIViewController {
                 }
                 
                 if let dat = data, let json = String(data: dat, encoding: .utf8) {
+                    // 방출된 값으로 UIView를 조작할 경우 main Thread에서 실행되어야함
                     emitter.onNext(json)
                     return
                 }
@@ -66,15 +68,33 @@ class ViewController: UIViewController {
         editView.text = ""
         setVisibleWithAnimation(activityIndicator, true)
         
-        DispatchQueue.global().async {
-            let url = URL(string: MOVIE_LIST)!
-            let data = try! Data(contentsOf: url)
-            let json = String(data: data, encoding: .utf8)
-            DispatchQueue.main.async {
-                self.editView.text = json
-                self.setVisibleWithAnimation(self.activityIndicator, false)
+        _ = download(MOVIE_LIST).subscribe({ (event) in
+            switch event {
+            case .next(let data):
+                // 이 부분을 줄이는 방법도 있읉텐데
+                DispatchQueue.main.async {
+                    self.editView.text = data
+                    self.setVisibleWithAnimation(self.activityIndicator, false)
+                }
+                break
+            case .error(let error):
+                let alertVC = UIAlertController(title: "오류", message: "\(error)", preferredStyle: .alert)
+                self.present(alertVC, animated: true, completion: nil)
+                break
+            case .completed:
+                break
             }
-        }
+        })
+        
+//        DispatchQueue.global().async {
+//            let url = URL(string: MOVIE_LIST)!
+//            let data = try! Data(contentsOf: url)
+//            let json = String(data: data, encoding: .utf8)
+//            DispatchQueue.main.async {
+//                self.editView.text = json
+//                self.setVisibleWithAnimation(self.activityIndicator, false)
+//            }
+//        }
         
     }
 }
