@@ -43,24 +43,25 @@ class ViewController: UIViewController {
     }
     
     func showLabelText(_ url: String) -> Observable<String> {
-        return Observable.create { emitter in
-            let url = URL(string: url)!
-            let task = URLSession.shared.dataTask(with: url) { (data, _, err) in
-                guard err == nil else {
-                    emitter.onError(err!)
-                    return
-                }
-                if let d = data, let json = String(data: d, encoding: .utf8) {
-                        emitter.onNext(json)
-                }
-                emitter.onCompleted()
-            }
-            task.resume()
-            
-            return Disposables.create() {
-                task.cancel()
-            }
-        }
+        return Observable.from(["hello","rxswift"])
+//        return Observable.create { emitter in
+//            let url = URL(string: url)!
+//            let task = URLSession.shared.dataTask(with: url) { (data, _, err) in
+//                guard err == nil else {
+//                    emitter.onError(err!)
+//                    return
+//                }
+//                if let d = data, let json = String(data: d, encoding: .utf8) {
+//                        emitter.onNext(json)
+//                }
+//                emitter.onCompleted()
+//            }
+//            task.resume()
+//
+//            return Disposables.create() {
+//                task.cancel()
+//            }
+//        }
     }
               
     
@@ -70,15 +71,29 @@ class ViewController: UIViewController {
                 DispatchQueue.main.async {
                     self.label.text = t
                 }
-                print("next")
+//                print(t)
+//                print("next")
             }, onError: { e in
                 print(e)
             }, onCompleted: {
-                print("done")
+//                print("done")
             }, onDisposed: {
-                print("disposed")
+//                print("disposed")
             })
             .dispose()
+    }
+    @IBAction func goToRxTableViewWithSection(_ sender: Any) {
+        guard let vc = UIStoryboard.init(name: "RxTableViewWithSection", bundle: nil).instantiateViewController(identifier: "RxTableViewWithSectionVC") as? RxTableViewWithSectionVC else { return }
+        
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true, completion: nil)
+        
+    }
+    @IBAction func goToTableViewWithSection(_ sender: Any) {
+        guard let vc = UIStoryboard.init(name: "TableViewWithSection", bundle: nil).instantiateViewController(identifier: "TableViewWithSectionVC") as? TableViewWithSectionVC else { return }
+        
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true, completion: nil)
     }
 }
 
