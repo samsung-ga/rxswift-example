@@ -10,90 +10,57 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    // MARK: - Constants
-    let disposeBag = DisposeBag()
-    let MY_API: String = "https://my.api.mockaroo.com/myapi.json?key=30fca5f0"
+  let bag = DisposeBag()
+  override func viewDidLoad() {
+    super.viewDidLoad()
     
-    // MARK: - Properties
+    // MARK: Observable Sequences
 
-    lazy var label: UILabel = {
-        let label = UILabel()
-        label.text = "TestLabel"
-        label.layer.borderWidth = 1
-        label.layer.borderColor = UIColor.lightGray.cgColor
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
+    let fibonacciSequence = Observable.from([0,1,1,2,3,5,8])
+    let dictSequence = Observable.from([1:"Hello",2:"World"])
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setUI()
-        updateUI()
-    }
+    let helloSequence = Observable.of("Hello Rx")
 
-    // MARK: - Private Methods
+    let subscription = helloSequence.subscribe { event in
+      switch event {
+      case .next(let value):
+        print(value)
+      case .error(let error):
+        print(error)
+      case .completed:
+        print("completed")
+      }
+    }
+    
+    // MARK: Subjects
+    
+    var publishSubject = PublishSubject<String>()
+    publishSubject.onNext("Hello")
+    publishSubject.onNext("World")
+    
+    let subscription1 = publishSubject.subscribe(onNext: {
+      print($0)
+    }).disposed(by: bag)
+    publishSubject.onNext("Hello")
+    publishSubject.onNext("Again")
+    
+    let subscription2 = publishSubject.subscribe(onNext:{
+      print(#line,$0)
+    })
 
-    private func setUI() {
-        view.addSubview(label)
-        label.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        label.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        label.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30).isActive = true
-        label.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -30).isActive = true
-        label.numberOfLines = 0
-    }
+    publishSubject.onNext("Both Subcriptions recieve this message")
     
-    func showLabelText(_ url: String) -> Observable<String> {
-        return Observable.from(["hello","rxswift"])
-//        return Observable.create { emitter in
-//            let url = URL(string: url)!
-//            let task = URLSession.shared.dataTask(with: url) { (data, _, err) in
-//                guard err == nil else {
-//                    emitter.onError(err!)
-//                    return
-//                }
-//                if let d = data, let json = String(data: d, encoding: .utf8) {
-//                        emitter.onNext(json)
-//                }
-//                emitter.onCompleted()
-//            }
-//            task.resume()
-//
-//            return Disposables.create() {
-//                task.cancel()
-//            }
-//        }
-    }
-              
     
-    private func updateUI() {
-        showLabelText(MY_API)
-            .subscribe(onNext: { t in
-                DispatchQueue.main.async {
-                    self.label.text = t
-                }
-//                print(t)
-//                print("next")
-            }, onError: { e in
-                print(e)
-            }, onCompleted: {
-//                print("done")
-            }, onDisposed: {
-//                print("disposed")
-            })
-            .dispose()
-    }
-    @IBAction func goToRxTableViewWithSection(_ sender: Any) {
-        guard let vc = UIStoryboard.init(name: "RxTableViewWithSection", bundle: nil).instantiateViewController(identifier: "RxTableViewWithSectionVC") as? RxTableViewWithSectionVC else { return }
-        
-        vc.modalPresentationStyle = .fullScreen
-        self.present(vc, animated: true, completion: nil)
-        
-    }
-    @IBAction func goToTableViewWithSection(_ sender: Any) {
-        guard let vc = UIStoryboard.init(name: "TableViewWithSection", bundle: nil).instantiateViewController(identifier: "TableViewWithSectionVC") as? TableViewWithSectionVC else { return }
-        
-        vc.modalPresentationStyle = .fullScreen
-        self.present(vc, animated: true, completion: nil)
-    }
+    Observable<Int>.of(1,2,3,4).map { value in
+      return value * 10
+    }.subscribe(onNext: {
+      print($0)
+    }).disposed(by: bag)
+    
+    let sequence1 = Observable<Int>.of(1,2)
+    
+    
+  }
+  
 }
 

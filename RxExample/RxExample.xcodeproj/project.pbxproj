@@ -14,12 +14,6 @@
 		D496D526264DA25E00655AC3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D496D524264DA25E00655AC3 /* Main.storyboard */; };
 		D496D528264DA25F00655AC3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D496D527264DA25F00655AC3 /* Assets.xcassets */; };
 		D496D52B264DA25F00655AC3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D496D529264DA25F00655AC3 /* LaunchScreen.storyboard */; };
-		D4E626A22658DB2600E07F1C /* RxTableViewWithSection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4E626A12658DB2600E07F1C /* RxTableViewWithSection.storyboard */; };
-		D4E626A42658DB4900E07F1C /* TableViewWithSection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4E626A32658DB4900E07F1C /* TableViewWithSection.storyboard */; };
-		D4E626A62658DC8400E07F1C /* TableViewWithSectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E626A52658DC8400E07F1C /* TableViewWithSectionVC.swift */; };
-		D4E626A92658DCB100E07F1C /* RxTableViewWithSectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E626A82658DCB100E07F1C /* RxTableViewWithSectionVC.swift */; };
-		D4E626AC2658DED700E07F1C /* TableViewWithSectionTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E626AB2658DED700E07F1C /* TableViewWithSectionTVC.swift */; };
-		D4E626AE2658E4E000E07F1C /* RxTableViewWithSectionTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E626AD2658E4E000E07F1C /* RxTableViewWithSectionTVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,12 +26,6 @@
 		D496D527264DA25F00655AC3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D496D52A264DA25F00655AC3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D496D52C264DA25F00655AC3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D4E626A12658DB2600E07F1C /* RxTableViewWithSection.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RxTableViewWithSection.storyboard; sourceTree = "<group>"; };
-		D4E626A32658DB4900E07F1C /* TableViewWithSection.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TableViewWithSection.storyboard; sourceTree = "<group>"; };
-		D4E626A52658DC8400E07F1C /* TableViewWithSectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewWithSectionVC.swift; sourceTree = "<group>"; };
-		D4E626A82658DCB100E07F1C /* RxTableViewWithSectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxTableViewWithSectionVC.swift; sourceTree = "<group>"; };
-		D4E626AB2658DED700E07F1C /* TableViewWithSectionTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewWithSectionTVC.swift; sourceTree = "<group>"; };
-		D4E626AD2658E4E000E07F1C /* RxTableViewWithSectionTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxTableViewWithSectionTVC.swift; sourceTree = "<group>"; };
 		E2F3E068B9B1A5DB022A49ED /* Pods-RxExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxExample.debug.xcconfig"; path = "Target Support Files/Pods-RxExample/Pods-RxExample.debug.xcconfig"; sourceTree = "<group>"; };
 		F2984AF3CAED49CD454B4326 /* Pods_RxExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -87,34 +75,12 @@
 				D496D51E264DA25E00655AC3 /* AppDelegate.swift */,
 				D496D520264DA25E00655AC3 /* SceneDelegate.swift */,
 				D496D522264DA25E00655AC3 /* ViewController.swift */,
-				D4E626AA2658DCBB00E07F1C /* RxTableViewWithSection */,
-				D4E626A72658DC8900E07F1C /* TableViewWithHeader */,
 				D496D524264DA25E00655AC3 /* Main.storyboard */,
 				D496D527264DA25F00655AC3 /* Assets.xcassets */,
 				D496D529264DA25F00655AC3 /* LaunchScreen.storyboard */,
 				D496D52C264DA25F00655AC3 /* Info.plist */,
 			);
 			path = RxExample;
-			sourceTree = "<group>";
-		};
-		D4E626A72658DC8900E07F1C /* TableViewWithHeader */ = {
-			isa = PBXGroup;
-			children = (
-				D4E626A52658DC8400E07F1C /* TableViewWithSectionVC.swift */,
-				D4E626A32658DB4900E07F1C /* TableViewWithSection.storyboard */,
-				D4E626AB2658DED700E07F1C /* TableViewWithSectionTVC.swift */,
-			);
-			path = TableViewWithHeader;
-			sourceTree = "<group>";
-		};
-		D4E626AA2658DCBB00E07F1C /* RxTableViewWithSection */ = {
-			isa = PBXGroup;
-			children = (
-				D4E626A12658DB2600E07F1C /* RxTableViewWithSection.storyboard */,
-				D4E626A82658DCB100E07F1C /* RxTableViewWithSectionVC.swift */,
-				D4E626AD2658E4E000E07F1C /* RxTableViewWithSectionTVC.swift */,
-			);
-			path = RxTableViewWithSection;
 			sourceTree = "<group>";
 		};
 		DF6A0A17A5E01E21606F1AD1 /* Frameworks */ = {
@@ -186,8 +152,6 @@
 			files = (
 				D496D52B264DA25F00655AC3 /* LaunchScreen.storyboard in Resources */,
 				D496D528264DA25F00655AC3 /* Assets.xcassets in Resources */,
-				D4E626A22658DB2600E07F1C /* RxTableViewWithSection.storyboard in Resources */,
-				D4E626A42658DB4900E07F1C /* TableViewWithSection.storyboard in Resources */,
 				D496D526264DA25E00655AC3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -241,13 +205,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4E626AE2658E4E000E07F1C /* RxTableViewWithSectionTVC.swift in Sources */,
-				D4E626A92658DCB100E07F1C /* RxTableViewWithSectionVC.swift in Sources */,
-				D4E626AC2658DED700E07F1C /* TableViewWithSectionTVC.swift in Sources */,
 				D496D523264DA25E00655AC3 /* ViewController.swift in Sources */,
 				D496D51F264DA25E00655AC3 /* AppDelegate.swift in Sources */,
 				D496D521264DA25E00655AC3 /* SceneDelegate.swift in Sources */,
-				D4E626A62658DC8400E07F1C /* TableViewWithSectionVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
