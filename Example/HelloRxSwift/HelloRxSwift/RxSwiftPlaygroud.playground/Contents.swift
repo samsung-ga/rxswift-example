@@ -1,27 +1,12 @@
 import UIKit
 import RxSwift
+import RxRelay
 import PlaygroundSupport
 
 let disposeBag = DisposeBag()
 
-let subject = PublishSubject<String>()
-let trigger = PublishSubject<String>()
-
-subject.sample(trigger, defaultValue: nil)
+Observable.of(1,2,3,4,5,6,7,8,9)
+    .buffer(timeSpan: .seconds(2), count: 4, scheduler: MainScheduler.instance)
     .subscribe(onNext: {
         print($0)
     }).disposed(by: disposeBag)
-
-subject.onNext("A")
-subject.onNext("B")
-
-trigger.onNext("Go")
-
-subject.onNext("C")
-
-trigger.onNext("Go")
-trigger.onNext("Go")
-
-subject.onNext("C")
-
-trigger.onNext("Go")
